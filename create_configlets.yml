@@ -1,0 +1,22 @@
+---
+# ansible-playbook create_configlets.yml
+- name: create configlets from CSV data
+  gather_facts: no
+  hosts: localhost
+
+  tasks:
+
+  - name: "Reading in CSV file"
+    read_csv:
+      path: ./datafiles/switch_info.csv
+      fieldnames: switch_hostname,switch_mgmt_ip,bit_mask,default_gw
+    register: switches
+
+  - name: Create configlet
+    template: src=./templates/base-cfg.j2 dest=./configlets/{{ switch.switch_hostname }}.txt
+    #debug:
+    #  msg: 'data vars: {{switch.switch_hostname}} {{switch.switch_mgmt_ip}} {{switch.bit_mask}} {{switch.default_gw}}'  
+    #  var: switches
+    loop: "{{ switches.list }}"
+    loop_control:
+      loop_var: switch
