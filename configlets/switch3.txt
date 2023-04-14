@@ -1,11 +1,11 @@
 !
-hostname bbw778-sw1
+hostname switch3
 !
 interface Vlan1
    description Management
-   ip address 10.2.1.16/24
+   ip address 10.3.1.16/24
 !
-ip route 0.0.0.0/0 10.2.1.1
+ip route 0.0.0.0/0 10.3.1.1
 !
 ip routing
 !

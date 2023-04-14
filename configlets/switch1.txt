@@ -1,11 +1,11 @@
 !
-hostname vss1300-sw1
+hostname switch1
 !
 interface Vlan1
    description Management
-   ip address 10.1.1.16/24
+   ip address 10.2.1.16/24
 !
-ip route 0.0.0.0/0 10.1.1.1
+ip route 0.0.0.0/0 10.2.1.1
 !
 ip routing
 !
