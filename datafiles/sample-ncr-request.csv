@@ -1,0 +1,31 @@
+3.03,Please add a line for each physical connection,* Indicates a required Field,"Place ""Ignore"" in Column A to skip Config of row",,,"Select matching Port-channel 
+number for all member server ports.",,,,"Use Interface Prefixes:
+Et, Fa, Gi, and Te",Request Number in M ->,RITM0001157458,
+Location/Grid,DNS Name*                                         (Please use all CAPS),"Purpose*                       (Prod, Private, or ILO)","NIC#*
+(Please use all CAPS)","Interface
+Speed*",Copper or Fiber*,"Port-Channel (LACP)*
+(Enter Desired Port-Channel #)","Trunk*
+(802.1q)",VLAN(s) or Network Required*,Switch*                               (Data Center Use only)           ,Switchport*                    (Data Center Use only)  ,"Port Validated?*                 
+(Network Ops Use only)  ","Platform*
+(Network Ops Use only)","Native Vlan                   
+(Network Ops Use only default = 1)   "
+Example: NADC-AZ09,EXAMPLE: SERVERNAME1,Prod,EXAMPLE: NIC#1,1G,Copper,1,Yes,"Example: 1,2,3,4,5,6",ohnadcserver-sw1,Et3/18,Yes,EOS,3
+Example: NADC-AZ09,EXAMPLE: SERVERNAME1,Prod,EXAMPLE: NIC#2,1G,Copper,1,Yes,"Example: 1,2,3,4,5,6",ohnadcserver-sw2,Et3/18,Yes,EOS,3
+Example: 1RP-T-25,EXAMPLE: SERVERNAME2,Prod,EXAMPLE: NIC#1,1G,Copper,No,No,Example: 10.92.1.0,ohcoldcserver-sw1,Et4/45,Yes,Trunk Add,
+GDC AD,OHGRODCVM5151,Prod,VMNIC0,10G,Fiber,No,Yes,"166,167,168,410,411",ohgvpdcdgpssa02,Et2,Yes,EOS,
+GDC AD,OHGRODCVM5151,Prod,VMNIC1,10G,Fiber,No,Yes,"166,167,168,410,411",ohgvpdcdgpssb02,Et2,Yes,EOS,
+GDC AD,OHGRODCVM5151,Prod,VMNIC2,10G,Fiber,No,Yes,"166,167,168,410,411",ohgvpdcdgpssa02,Et3,Yes,EOS,
+GDC AD,OHGRODCVM5151,Prod,VMNIC3,10G,Fiber,No,Yes,"166,167,168,410,411",ohgvpdcdgpssb02,Et3,Yes,EOS,
+GDC AD,OHGRODCVM5151,DRAC,iDrac,1G,Copper,No,No,166,ohgvpdcdgpssa02,Et45,Yes,EOS,
+,,,,,,,,,,,,,
+GDC AD,OHGRODCVM5152,Prod,VMNIC0,10G,Fiber,No,Yes,"166,167,168,410,411",ohgvpdcdgpssa02,Et4,Yes,EOS,
+GDC AD,OHGRODCVM5152,Prod,VMNIC1,10G,Fiber,No,Yes,"166,167,168,410,411",ohgvpdcdgpssb02,Et4,Yes,EOS,
+GDC AD,OHGRODCVM5152,Prod,VMNIC2,10G,Fiber,No,Yes,"166,167,168,410,411",ohgvpdcdgpssa02,Et5,Yes,EOS,
+GDC AD,OHGRODCVM5152,Prod,VMNIC3,10G,Fiber,No,Yes,"166,167,168,410,411",ohgvpdcdgpssb02,Et5,Yes,EOS,
+GDC AD,OHGRODCVM5152,DRAC,iDrac,1G,Copper,No,No,166,ohgvpdcdgpssb02,Et45,Yes,EOS,
+,,,,,,,,,,,,,
+GDC AD,OHGRODCVM5153,Prod,VMNIC0,10G,Fiber,No,Yes,"166,167,168,410,411",ohgvpdcdgpssa02,Et6,Yes,EOS,
+GDC AD,OHGRODCVM5153,Prod,VMNIC1,10G,Fiber,No,Yes,"166,167,168,410,411",ohgvpdcdgpssb02,Et6,Yes,EOS,
+GDC AD,OHGRODCVM5153,Prod,VMNIC2,10G,Fiber,No,Yes,"166,167,168,410,411",ohgvpdcdgpssa02,Et7,Yes,EOS,
+GDC AD,OHGRODCVM5153,Prod,VMNIC3,10G,Fiber,No,Yes,"166,167,168,410,411",ohgvpdcdgpssb02,Et7,Yes,EOS,
+GDC AD,OHGRODCVM5153,DRAC,iDrac,1G,Copper,No,No,166,ohgvpdcdgpssa02,Et46,Yes,EOS,

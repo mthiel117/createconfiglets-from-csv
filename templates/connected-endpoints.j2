@@ -1,37 +1,24 @@
-port_profiles:
-
-  PP-VLAN10:
-    mode: "access"
-    vlans: "10"
-    spanning_tree_portfast: edge
-  PP-VLAN20:
-    mode: "access"
-    vlans: "20"
-    spanning_tree_portfast: edge
-  PP-VLAN30:
-    mode: "access"
-    vlans: "30"
-    spanning_tree_portfast: edge
-  PP-VLAN40:
-    mode: "access"
-    vlans: "40"
-    spanning_tree_portfast: edge
-
-###########################################################
-# ---------------- Endpoint Connectivity ---------------- #
-###########################################################
-
-servers:
-
-{% for endpoint in connected_endpoints.list %}
-  {{ endpoint.hostname }}:
-    adapters:
-      - switches: [ {{ endpoint.leafa }}, {{ endpoint.leafb }} ]
-        switch_ports: [ {{ endpoint.porta }}, {{ endpoint.portb }} ]
-        profile: {{ endpoint.port_profile }}
-{% if endpoint.port_channel is defined and endpoint.port_channel == "true" %}
-        port_channel:
-          mode: {{ endpoint.mode }}
-{% endif %}
-
+{# Create a list of non-duplicated endpoints #}
+{% set endpoints = [] %}
+{% set connected_endpoints = {} %}
+{% for port in ports.list %}
+{%    if ( port.hostname is defined ) and ( port.hostname is not in endpoints ) and ( port.hostname != "#" ) %}
+{%        do endpoints.append(port.hostname) %}
+{%    endif %}
 {% endfor %}
+{# Loop through each endpoint to build the switch and port lists #}
+{% for endpoint in endpoints %}
+{%    set switches = [] %}
+{%    set switch_ports = [] %}
+{%    for port in ports.list %}
+{%        if ( port.hostname == endpoint ) %}
+{%            do switches.append(port.switch) %}
+{%            do switch_ports.append(port.port) %}
+{%        endif %}
+{%    endfor %}
+{%    do connected_endpoints.update({endpoint:{"switches": switches, "switch_ports": switch_ports}}) %}
+{% endfor %}
+{{ connected_endpoints }}
+
+{# Checkout this option for grouping #}
+{# https://ttl255.com/jinja2-tutorial-part-4-template-filters/#groupby #}

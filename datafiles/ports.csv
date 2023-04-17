@@ -1,0 +1,16 @@
+hostname,switch,port,port_profile,port_channel,mode
+#
+host1,leaf1,Ethernet4,PP-VLAN10,true,active
+host1,leaf2,Ethernet4,PP-VLAN10,true,active
+#
+host2,leaf3,Ethernet4,PP-VLAN20,true,active
+host2,leaf4,Ethernet4,PP-VLAN20,true,active
+#
+host3,leaf1,Ethernet5,PP-VLAN30,true,active
+host3,leaf2,Ethernet5,PP-VLAN30,true,active
+#
+host4,leaf3,Ethernet5,PP-VLAN40,true,active
+host4,leaf4,Ethernet5,PP-VLAN40,true,active
+host4,leaf3,Ethernet6,PP-VLAN40,true,active
+host4,leaf4,Ethernet6,PP-VLAN40,true,active
+#
