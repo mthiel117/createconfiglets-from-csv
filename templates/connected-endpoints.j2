@@ -23,15 +23,15 @@ port_profiles:
 
 servers:
 
-{% for host in network_ports.list %}
-  {{ host.host }}:
+{% for endpoint in connected_endpoints.list %}
+  {{ endpoint.hostname }}:
     adapters:
-      - switches: [ {{ host.leafa }}, {{ host.leafb }} ]
-        switch_ports: [ {{ host.porta }}, {{ host.portb }} ]
-        profile: {{ host.port_profile }}
-{% if host.port_channel is defined and host.port_channel == "true" %}
+      - switches: [ {{ endpoint.leafa }}, {{ endpoint.leafb }} ]
+        switch_ports: [ {{ endpoint.porta }}, {{ endpoint.portb }} ]
+        profile: {{ endpoint.port_profile }}
+{% if endpoint.port_channel is defined and endpoint.port_channel == "true" %}
         port_channel:
-          mode: {{ host.mode }}
+          mode: {{ endpoint.mode }}
 {% endif %}
 
 {% endfor %}

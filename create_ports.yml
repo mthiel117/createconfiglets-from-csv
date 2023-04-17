@@ -9,8 +9,8 @@
 
   - name: Read Network Ports from CSV file
     read_csv:
-      path: datafiles/network_ports.csv
-    register: network_ports
+      path: datafiles/connected_endpoints.csv
+    register: connected_endpoints
 
   - name: Generate YML Data Model
     template: src=templates/connected-endpoints.j2 dest=output/endpoints.yml

@@ -1,4 +1,4 @@
-host,leafa,leafb,porta,portb,port_profile,port_channel,mode
+hostname,leafa,leafb,porta,portb,port_profile,port_channel,mode
 s1-host1,s1-leaf1,s1-leaf2,Ethernet4,Ethernet4,PP-VLAN10,true,active
 s1-host2,s1-leaf3,s1-leaf4,Ethernet4,Ethernet4,PP-VLAN20,true,active
 s2-host1,s2-leaf1,s1-leaf2,Ethernet4,Ethernet4,PP-VLAN30,true,active
