@@ -2,15 +2,15 @@
 # ansible-playbook create_ports.yml
 # Playbook and Template to create connected endpoints to be used in AVD
 
-- name: create configlets from CSV data
+- name: Create Connected Endpoints
   hosts: localhost
 
   tasks:
 
-  - name: Read in CSV file
+  - name: Read Network Ports from CSV file
     read_csv:
       path: datafiles/network_ports.csv
     register: network_ports
 
-  - name: Create configlet
+  - name: Generate YML Data Model
     template: src=templates/connected-endpoints.j2 dest=output/endpoints.yml
