@@ -1,0 +1,49 @@
+port_profiles:
+
+  PP-VLAN10:
+    mode: "access"
+    vlans: "10"
+    spanning_tree_portfast: edge
+  PP-VLAN20:
+    mode: "access"
+    vlans: "20"
+    spanning_tree_portfast: edge
+
+###########################################################
+# ---------------- Endpoint Connectivity ---------------- #
+###########################################################
+
+servers:
+
+  s1-host1:
+    adapters:
+      - switches: [ s1-leaf1, s1-leaf2 ]
+        switch_ports: [ Ethernet4, Ethernet4 ]
+        profile: PP-VLAN10
+        port_channel:
+          mode: active
+
+  s1-host2:
+    adapters:
+      - switches: [ s1-leaf3, s1-leaf4 ]
+        switch_ports: [ Ethernet4, Ethernet4 ]
+        profile: PP-VLAN20
+        port_channel:
+          mode: active
+
+  s2-host1:
+    adapters:
+      - switches: [ s2-leaf1, s1-leaf2 ]
+        switch_ports: [ Ethernet4, Ethernet4 ]
+        profile: PP-VLAN30
+        port_channel:
+          mode: active
+
+  s2-host2:
+    adapters:
+      - switches: [ s2-leaf3, s1-leaf4 ]
+        switch_ports: [ Ethernet4, Ethernet4 ]
+        profile: PP-VLAN40
+        port_channel:
+          mode: active
+

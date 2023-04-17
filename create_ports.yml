@@ -1,0 +1,23 @@
+---
+# ansible-playbook create_ports.yml
+- name: create configlets from CSV data
+  gather_facts: no
+  hosts: localhost
+
+  tasks:
+
+  - name: "Reading in CSV file"
+    read_csv:
+      path: datafiles/network_ports.csv
+      # fieldnames: switch_hostname,switch_mgmt_ip,bit_mask,default_gw
+    register: endpoints
+
+  - name: Print it out
+    debug:
+      msg: "{{ endpoints }}"
+
+  - name: Create configlet
+    template: src=templates/connected-endpoints.j2 dest=output/endpoints.yml
+    # loop: "{{ switches.list }}"
+    # loop_control:
+    #   loop_var: switch
