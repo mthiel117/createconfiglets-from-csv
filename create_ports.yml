@@ -1,5 +1,7 @@
 ---
 # ansible-playbook create_ports.yml
+# Playbook and Template to create connected endpoints to be used in AVD
+
 - name: create configlets from CSV data
   hosts: localhost
 
