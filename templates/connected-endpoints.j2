@@ -15,7 +15,7 @@ port_profiles:
 
 servers:
 
-{% for host in endpoints.list %}
+{% for host in network_ports.list %}
   {{ host.host }}:
     adapters:
       - switches: [ {{ host.leafa }}, {{ host.leafb }} ]

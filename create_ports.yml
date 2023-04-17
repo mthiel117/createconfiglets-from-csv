@@ -6,18 +6,10 @@
 
   tasks:
 
-  - name: "Reading in CSV file"
+  - name: Read in CSV file
     read_csv:
       path: datafiles/network_ports.csv
-      # fieldnames: switch_hostname,switch_mgmt_ip,bit_mask,default_gw
-    register: endpoints
-
-  - name: Print it out
-    debug:
-      msg: "{{ endpoints }}"
+    register: network_ports
 
   - name: Create configlet
     template: src=templates/connected-endpoints.j2 dest=output/endpoints.yml
-    # loop: "{{ switches.list }}"
-    # loop_control:
-    #   loop_var: switch
