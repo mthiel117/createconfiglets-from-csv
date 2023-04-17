@@ -8,6 +8,14 @@ port_profiles:
     mode: "access"
     vlans: "20"
     spanning_tree_portfast: edge
+  PP-VLAN30:
+    mode: "access"
+    vlans: "30"
+    spanning_tree_portfast: edge
+  PP-VLAN40:
+    mode: "access"
+    vlans: "40"
+    spanning_tree_portfast: edge
 
 ###########################################################
 # ---------------- Endpoint Connectivity ---------------- #
