@@ -1,7 +1,6 @@
 ---
 # ansible-playbook create_ports.yml
 - name: create configlets from CSV data
-  gather_facts: no
   hosts: localhost
 
   tasks:
